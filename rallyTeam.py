@@ -2,18 +2,19 @@ class RallyTeam(object):
     """docstring for RallyTeam"""
     def __init__(self, rally, projects=None, memberEmails=None):
         super(RallyTeam, self).__init__()
-        self.rally = rally
-        self.members = []
+        self.__rally = rally
+        self.__members = []
 
         if projects == None and memberEmails == None:
             raise "Must specify either projects or members"
 
         if memberEmails != None:
             for memberEmail in memberEmails:
+            	print memberEmail
                 response = rally.get('User', username=memberEmail)
                 user = response.next()
                 if user:
-                    self.members.append(user)
+                    self.__members.append(user)
                 else:
                     raise "something's not right"
                     
@@ -24,7 +25,7 @@ class RallyTeam(object):
 
 
     def members(self):
-        return self.members
+        return self.__members
 
     def stories(self, members=None, iteration=None, state=None):
         return []
