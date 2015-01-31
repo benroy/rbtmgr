@@ -10,7 +10,6 @@ class RallyTeam(object):
 
         if memberEmails != None:
             for memberEmail in memberEmails:
-            	print memberEmail
                 users = rally.getUserInfo(username=memberEmail)
                 
                 if len(users) == 1:
