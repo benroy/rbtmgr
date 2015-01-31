@@ -11,10 +11,10 @@ class RallyTeam(object):
         if memberEmails != None:
             for memberEmail in memberEmails:
             	print memberEmail
-                response = rally.get('User', username=memberEmail)
-                user = response.next()
-                if user:
-                    self.__members.append(user)
+                users = rally.getUserInfo(username=memberEmail)
+                
+                if len(users) == 1:
+                    self.__members.append(users[0])
                 else:
                     raise "something's not right"
                     

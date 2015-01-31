@@ -1,4 +1,5 @@
 *.pyc
+rally-*.cfg
 
 # Windows image file caches
 Thumbs.db
