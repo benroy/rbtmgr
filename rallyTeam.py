@@ -1,18 +1,18 @@
 class RallyTeam(object):
     """docstring for RallyTeam"""
-    def __init__(self, rally, memberEmails):
+    def __init__(self, rally, member_emails):
         super(RallyTeam, self).__init__()
         self.__rally = rally
         self.__members = []
 
-        if memberEmails is None:
+        if member_emails is None:
             raise "Must specify members"
 
-        for memberEmail in memberEmails:
-            self.addMember(memberEmail)
+        for member_email in member_emails:
+            self.addMember(member_email)
 
-    def addMember(self, memberEmail):
-        users = self.__rally.getUserInfo(username=memberEmail)
+    def add_member(self, member_email):
+        users = self.__rally.getUserInfo(username=member_email)
 
         if len(users) == 1:
             self.__members.append(users[0])
