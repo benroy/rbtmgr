@@ -5,7 +5,7 @@ class RallyTeam(object):
         self.__rally = rally
         self.__members = []
 
-        if  memberEmails == None:
+        if memberEmails is None:
             raise "Must specify members"
 
         for memberEmail in memberEmails:
@@ -13,11 +13,11 @@ class RallyTeam(object):
 
     def addMember(self, memberEmail):
         users = self.__rally.getUserInfo(username=memberEmail)
-        
+
         if len(users) == 1:
             self.__members.append(users[0])
         else:
             raise "something's not right"
 
     def members(self):
-         return self.__members
+        return self.__members
