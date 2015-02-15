@@ -9,13 +9,15 @@ class RallyTeam(object):
             raise "Must specify members"
 
         for memberEmail in memberEmails:
-            print memberEmail
-            users = rally.getUserInfo(username=memberEmail)
-            
-            if len(users) == 1:
-                self.__members.append(users[0])
-            else:
-                raise "something's not right"
+            self.addMember(memberEmail)
+
+    def addMember(self, memberEmail):
+        users = self.__rally.getUserInfo(username=memberEmail)
+        
+        if len(users) == 1:
+            self.__members.append(users[0])
+        else:
+            raise "something's not right"
 
     def members(self):
          return self.__members
